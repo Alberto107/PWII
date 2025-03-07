@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Include_Require</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -18,24 +21,46 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="./index.php">Início</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Países
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="./brazil.php">
+              <img src="https://cdn1.iconfinder.com/data/icons/ensign-11/512/38_Ensign_Flag_Nation_brazil-256.png" width="20px">
+              Brazil
+            </a></li>
+            <li><a class="dropdown-item" href="./china.php">
+              <img src="https://cdn4.iconfinder.com/data/icons/world-flags/180/flag_china-256.png" width="20px">
+              China
+            </a></li>
+            <li><a class="dropdown-item" href="./jordan.php">
+              <img src="https://cdn4.iconfinder.com/data/icons/world-flags/180/flag_jordan-256.png" width="20px">
+              Jordan
+            </a></li>
+            <li><a class="dropdown-item" href="./italy.php">
+            <img src="https://cdn4.iconfinder.com/data/icons/world-flags/180/flag_italy-256.png" width="20px">
+              Italy
+            </a></li>
+            <li><a class="dropdown-item" href="./mexico.php">
+            <img src="https://cdn1.iconfinder.com/data/icons/ensign-11/512/168_Ensign_Flag_Nation_mexico-256.png" width="20px">
+              Mexico
+            </a></li>
+            <li><a class="dropdown-item" href="./peru.php">
+            <img src="https://cdn4.iconfinder.com/data/icons/flags-vol-8/48/159-256.png" width="20px">
+              Peru
+            </a></li>
+            <li><a class="dropdown-item" href="./india.php">
+            <img src="https://cdn4.iconfinder.com/data/icons/world-flags-6/900/india_indian_national_country_flag-256.png" width="20px">
+              India
+            </a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link" href="./contato.php">Contato</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
