@@ -3,4 +3,27 @@ body{
 }
 h1{
     font-family: "Playwrite IT Moderna", cursive;
+    
 }
+
+.bg-grayscale-30{
+    background-color: #4a4a4a;
+}
+
+.bg-grayscale-30  h3,
+.bg-grayscale-30  p {
+    color: #fff;
+}
+
+.bg-grayscale-30 h3{
+    font-size: 48px;
+}
+
+.bg-grayscale-30 p{
+    font-size: 18px;
+}
+
+.bg-grayscale-50{
+    background-color: #6a6a6a;
+}
+/* o > procura o primeiro h3  */
