@@ -30,7 +30,7 @@
   foreach ($estacionameto as $key => $veiculo) { //pegou os dois do estacionamento e atribuiu para $veiculo
     echo 'Veículo: ' . $veiculo['nome'] . '<br>';
     echo 'Placa: ' . $veiculo['placa'] . '<br>';
-    echo '<img src=" '. $veiculo['foto'] . ' ">'; //
+    echo '<img src=" '. $veiculo['foto'] . ' "<br>'; //o foreach n precisa do contador++, ele faz por si só
   }
 
   //o foreach percorreu o primeiro objeto Fusca e depois foi para o Uno e em seguida apresentou os dois.
