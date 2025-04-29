@@ -23,14 +23,15 @@
 <!-- recebendo os dados -->
 
 <?php
+//if else ternário
     $username = isset($_POST['username']) ? $_POST['username'] : exit();
-    $username = isset($_POST['password']) ? $_POST['password'] : exit();
+    $password = isset($_POST['password']) ? $_POST['password'] : exit();
 
     //statement
-    $stmt = $pdo->prepare('INSERT INTO usuario (id, username, password) VALUES (:username, :password)'); 
-    //função do pdo, inserir em usuario (tabela do banco de Dados), nas colunas id, username, password os valores (os mesmos, porém, os que estão com o :)
+    $stmt = $pdo->prepare('INSERT INTO usuario (username, password) VALUES (:username, :password)'); //insira na tabela usuário os valores da variáveis username e password
+    //função do pdo, inserir em usuario (tabela do banco de Dados), nas colunas  username, password os valores (os mesmos, porém, os que estão com o :)
     $stmt->bindParam(':username', $username);
-    $stmt->bindPAram(':password', $password);
+    $stmt->bindParam(':password', $password);
     $stmt->execute();
     //SQL INJECT -> é o bindParam vai verificar se a variável está "suja", então ele prepara o parâmetro para que o invasor não consiga apagar ou modificar dados do banco de dados no Formulário
 ?>
