@@ -12,16 +12,28 @@
         $this->foto = $foto;
     }
 
-    public function inserir(){
+    public function inserir($nome,$biografia,$foto){
         //inserindo autores no sistema
+      
+          $stmt = $pdo->prepare("INSERT INTO /* tabela -> */autor (nome, biografia, foto) VALUES (:nome, :biografia, :foto)");
+          $stmt->bindParam(':nome', $nome);
+          $stmt->bindParam(':biografia', $biografia);
+          $stmt->bindParam(':foto', $foto);
+          //se tiver "" ou () e não for o valor em si da variável ele bloqueia
+          $stmt->execute();
+      
       }
 
       public function buscar($id){
         //buscar autores no sistema via id
+        $stmt = $pdo->query("SELECT * FROM autor WHERE id = $id");
+        $autores = $stmt->fetchAll();
       }
 
       public function buscarTodos(){
         //buscar tudo (sem ser especificado por id)
+        $stmt = $pdo->query("SELECT * FROM autor");
+        $autores = $stmt->fetchAll();
       }
 
       public function atualizar($id){
@@ -30,6 +42,9 @@
 
       public function deletar($id){
         //deletar o autor via id
+        $stmt = $pdo->prepare('DELETE FROM autor WHERE id = :id');
+        $stmt->bindParam(':id', $id);
+            $stmt->execute();
       }
   }
 
