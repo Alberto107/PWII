@@ -31,8 +31,12 @@
         $categorias = $stmt->fetchAll();
       }
 
-      public function atualizar($id){
+      public function atualizar($id,$nome){
         //atualizar as categorias via id
+        $stmt = $pdo->prepare("UPDATE categoria SET nome = :nome WHERE id = :id");
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
       }
 
       public function deletar($id){

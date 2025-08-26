@@ -1,0 +1,10 @@
+.plano-fundo{
+    background: #630f66;
+    background: linear-gradient(90deg, rgba(99, 15, 102, 1) 0%, rgba(97, 31, 209, 1) 100%);
+}
+
+.altura{
+    height: 100vh;
+    overflow: hidden;
+
+}

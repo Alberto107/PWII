@@ -41,30 +41,40 @@
         
             
         }
+            public function buscar($id){
+              //buscar o ebook no sistema via id
+              $stmt = $pdo->query("SELECT * FROM ebook WHERE id = $id");
+              $ebooks = $stmt->fetchAll();
+            }
+
+            public function buscarTodos(){
+              //buscar tudo (sem ser especificado por id)
+              $stmt = $pdo->query("SELECT * FROM ebook");
+              $ebooks = $stmt->fetchAll();
+            }
+
+            public function atualizar($id, $titulo, $descricao, $isbn, $data_publicacao, $preco, $idioma, $foto){
+              //atualizar os ebooks via id
+              $stmt = $pdo->prepare("UPDATE ebook SET titulo = :titulo, descricao = :descricao, isbn = :isbn, data_publicacao = :data_publicacao, foto = :foto WHERE id = :id");
+              $stmt->bindParam(':titulo', $nome);
+              $stmt->bindParam(':descricao', $descricao);
+              $stmt->bindParam(':isbn', $isbn);
+              $stmt->bindParam(':data_publicacao', $data_publicacao);
+              $stmt->bindParam(':preco', $preco);
+              $stmt->bindParam(':idioma', $idioma);
+              $stmt->bindParam(':foto', $foto);
+              $stmt->bindParam(':id', $id);
+              $stmt->execute();
+            }
+
+            public function deletar($id){
+              //deletar o ebook via id
+              $stmt = $pdo->prepare('DELETE FROM ebook WHERE id = :id');
+              $stmt->bindParam(':id', $id);
+                  $stmt->execute();
+            }
       }
 
-      public function buscar($id){
-        //buscar o ebook no sistema via id
-        $stmt = $pdo->query("SELECT * FROM ebook WHERE id = $id");
-        $ebooks = $stmt->fetchAll();
-      }
 
-      public function buscarTodos(){
-        //buscar tudo (sem ser especificado por id)
-        $stmt = $pdo->query("SELECT * FROM ebook");
-        $ebooks = $stmt->fetchAll();
-      }
-
-      public function atualizar($id){
-        //atualizar os ebooks via id
-      }
-
-      public function deletar($id){
-        //deletar o ebook via id
-        $stmt = $pdo->prepare('DELETE FROM ebook WHERE id = :id');
-        $stmt->bindParam(':id', $id);
-            $stmt->execute();
-      }
-  }
 
 ?>

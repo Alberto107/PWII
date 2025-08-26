@@ -31,33 +31,42 @@
         
             
         }
+        public function buscar($id){
+          //buscar usuário no sistema via id
+          $stmt = $pdo->query("SELECT * FROM usuario WHERE id = $id");
+          $usuarios = $stmt->fetchAll();
+        }
+
+        public function buscarTodos(){
+          //buscar tudo (sem ser especificado por id)
+          $stmt = $pdo->query("SELECT * FROM usuario");
+          $usuarios = $stmt->fetchAll();
+        }
+
+        public function atualizar($id, $nome, $email, $senha, $tipo){
+          //atualizar os usuários via id
+
+          $stmt = $pdo->prepare("UPDATE usuario SET nome = :nome, email = :email, senha = :senha, tipo = :tipo WHERE id = :id");
+          $stmt->bindParam(':nome', $nome);
+          $stmt->bindParam(':email', $email);
+          $stmt->bindParam(':senha', $senha);
+          $stmt->bindParam(':tipo', $tipo);
+          $stmt->bindParam(':id', $id);
+          $stmt->execute();
+        }
+
+        public function login(){
+
+        }
+
+        public function logout(){
+
+        }
+   
+        // $usuario1 = new Usuario('Alberto','etc','etc','etc');
       }
 
-      public function buscar($id){
-        //buscar usuário no sistema via id
-        $stmt = $pdo->query("SELECT * FROM usuario WHERE id = $id");
-        $usuarios = $stmt->fetchAll();
-      }
 
-      public function buscarTodos(){
-        //buscar tudo (sem ser especificado por id)
-        $stmt = $pdo->query("SELECT * FROM usuario");
-        $usuarios = $stmt->fetchAll();
-      }
 
-      public function atualizar($id){
-        //atualizar os usuários via id
-      }
-
-      public function login(){
-
-      }
-
-      public function logout(){
-
-      }
-    }
-
-    // $usuario1 = new Usuario('Alberto','etc','etc','etc');
 
 ?>

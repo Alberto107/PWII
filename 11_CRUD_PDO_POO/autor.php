@@ -36,8 +36,14 @@
         $autores = $stmt->fetchAll();
       }
 
-      public function atualizar($id){
+      public function atualizar($id, $nome, $biografia, $foto){
         //atualizar os autores via id
+        $stmt = $pdo->prepare("UPDATE autor SET nome = :nome, biografia = :biografia, foto = :foto WHERE id = :id");
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':biografia', $biografia);
+        $stmt->bindParam(':foto', $foto);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
       }
 
       public function deletar($id){
