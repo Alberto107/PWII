@@ -14,8 +14,14 @@
         $this->tipo = $tipo;
       }
 
-      public function inserir($nome,$email,$senha,$tipo){
-        //inserindo usuários no sistema
+      public function inserir($nome,$email,$senha,$confirmar_senha, $tipo){
+            global $pdo;//chamando o pdo de outra página, dentro de função tem que ser global, já fora não
+            if($senha != $confirmar_senha)
+              return 'As senhas não conferem!';
+
+            if(empty($nome) || empty($email) || empty($senha) || empty($confirmar_senha))
+              return 'Favor preencher todos os campos';
+            //inserindo usuários no sistema
             $tipo = 'admin';
             //poseteriormente verificação se é admin ou não
             
@@ -28,6 +34,8 @@
             $stmt->bindParam(':tipo', $tipo);
             //se tiver "" ou () e não for o valor en si da variável ele bloqueia
             $stmt->execute();
+
+            return 'Usuário cadastrado com sucesso!';
         
             
         }
